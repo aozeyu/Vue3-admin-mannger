@@ -9,7 +9,18 @@ export const constantRoutes = [
     meta:{
       title:'首页',
       affix:true
-    }
+    },
+    children:[
+      {
+        path:'index',
+        name:'Index',
+        component: () => import('@/views/index/Index.vue'),
+        meta:{
+          title:'首页',
+          affix:true
+        }
+      }
+    ]
   },
   {
     path:'/login',
