@@ -6,12 +6,37 @@
       <!-- MenuList -->
       <app-menu :collapsed="collapsed"></app-menu>
     </a-layout-sider>
+    <!-- 右main区域 -->
+    <a-layout>
+      <a-layout-header class="app-header">
+        <a-row>
+          <a-col>
+            <menu-unfold-outlined
+              v-if="collapsed"
+              class="trigger"
+              @click="() => (collapsed = !collapsed)"
+            >
+            </menu-unfold-outlined>
+            <menu-fold-outlined
+              v-else
+              class="trigger"
+              @click="() => (collapsed = !collapsed)"
+            ></menu-fold-outlined>
+          </a-col>
+          <a-col>
+            <app-header />
+          </a-col>
+        </a-row>
+      </a-layout-header>
+    </a-layout>
   </a-layout>
 </template>
 
 <script>
 import AppLogo from "./logo/index.vue";
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons-vue";
 import AppMenu from "./menu/menu.vue";
+import AppHeader from "./header";
 import { ref } from "vue";
 export default {
   setup() {
@@ -23,6 +48,9 @@ export default {
   components: {
     AppLogo,
     AppMenu,
+    AppHeader,
+    MenuUnfoldOutlined,
+    MenuFoldOutlined,
   },
 };
 </script>
