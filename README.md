@@ -1,19 +1,20 @@
-# my-app
+#基于vue3的后台管理系统
 
-## Project setup
-```
-npm install
-```
+管理员 admin 密码 123456
+编辑者 editor 密码 123456
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+**版本信息**
 
-### Compiles and minifies for production
-```
-npm run build
-```
+| 使用库包       | 版本号     | 新特性                       |
+| -------------- | ---------- | ---------------------------- |
+| vue            | 3.0.0      | compositionAPI响应式数据     |
+| vue-router     | 4.0.1      | 动态路由控制解决用户登录权限 |
+| vuex           | 4.0.0-rc.2 | 数据缓存                     |
+| ant design vue | 2.0.0-rc.3 | admin-UI                     |
+| echarts        | 5.0.2      | 提供admin图表                |
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**安装**
+npm i
+
+###
+npm run server
