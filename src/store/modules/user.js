@@ -28,7 +28,7 @@ const user = {
     },
   },
   //异步请求
-  actons: {
+  actions: {
     //login
     LoginResult({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
