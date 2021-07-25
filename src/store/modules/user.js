@@ -9,7 +9,6 @@ const user = {
     roles: [],
     menus: [],
   },
-
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token;
