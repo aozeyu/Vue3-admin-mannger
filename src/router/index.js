@@ -135,6 +135,24 @@ export const asyncRoutes = [
         }
       }
     ]
+  },
+  {
+    path:'/system',
+    name:'system',
+    component:Layout,
+    redirect:'/system/account/index.vue',
+    meta:{
+      title:'system',
+      icon:'system',
+      roles:['admin','editor']
+    },
+    children:[
+      {
+        path:'account',
+        name:'account',
+        component:() => import('@/views/system/account/index.vue')
+      }
+    ]
   }
 ]
 
