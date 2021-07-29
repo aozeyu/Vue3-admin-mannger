@@ -70,7 +70,28 @@ export const asyncRoutes = [
     meta:{
       title:'错误页',
       icon:'error-warning-line'
-    }
+    },
+    children:[
+      {
+        path: '403',
+        name:'Error403',
+        component:()=> import('@/views/error/403.vue'),
+        meta:{
+          title:'403',
+          icon:'error-warning-line'
+
+        }
+      },
+      {
+        path:'404',
+        name:'Error404',
+        component:() => import('@/views/error/404.vue'),
+        meta:{
+          title:'404',
+          icon:'error-waining-line'
+        }
+      }
+    ]
   },
   {
     path:'/echart',
