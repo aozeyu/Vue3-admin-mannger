@@ -71,6 +71,39 @@ export const asyncRoutes = [
       title:'错误页',
       icon:'error-warning-line'
     }
+  },
+  {
+    path:'/echart',
+    component:Layout,
+    name:'echart',
+    redirect: '/echart/bar',
+    meta: {
+      title: '动态路由测试',
+      icon: 'test-tube-line',
+      roles: ['admin','editor']
+    },
+    children:[
+      {
+        path:'bar',
+        name:'Bar',
+        component:() => import('../views/echart/bar/index.vue'),
+        meta: {
+          title: '路由测试1',
+          icon: 'test-tube-line',
+          roles: ['admin','editor']
+        },
+      },
+      {
+        path:'line',
+        name:'Line',
+        component:() => import('../views/echart/line/index.vue'),
+        meta: {
+          title: '路由测试2',
+          icon: 'test-tube-line',
+          roles: ['admin','editor']
+        },
+      }
+    ]
   }
 ]
 
