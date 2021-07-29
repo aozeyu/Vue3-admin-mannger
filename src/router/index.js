@@ -102,6 +102,16 @@ export const asyncRoutes = [
           icon: 'test-tube-line',
           roles: ['admin','editor']
         },
+      },
+      {
+        path:'pie',
+        name:'Pie',
+        component:() => import('../views/echart/pie/index.vue'),
+        meta:{
+          title: '路由测试3',
+          icon:'text-tube-line',
+          roles:['admin','editor']
+        }
       }
     ]
   }
