@@ -3,7 +3,7 @@
     <div>
       <h1>404</h1>
       <h1>当前页面不存在</h1>
-      <router-link to="/" class="ant-btn ant-btn-primary">回到首页</router-link>
+      <router-link to="/index" class="ant-btn ant-btn-primary">回到首页</router-link>
     </div>
     <img src="~@/assets/images/error/404.png" alt="">
   </div>

@@ -150,7 +150,22 @@ export const asyncRoutes = [
       {
         path:'account',
         name:'account',
-        component:() => import('@/views/system/account/index.vue')
+        component:() => import('@/views/system/account/index.vue'),
+        meta:{
+          title:'account',
+          icon:'account',
+          roles:['editor']
+        }
+      },
+      {
+        path: 'group',
+        name:'group',
+        component:() => import('@/views/system/group/index.vue'),
+        meta:{
+          title:'group',
+          name:'group',
+          roles:['admin']
+        }
       }
     ]
   }

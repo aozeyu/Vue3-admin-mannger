@@ -103,6 +103,7 @@ export default {
 };
 </script>
 
+<!--  -->
 <template>
   <div>
     <a-button
@@ -115,10 +116,10 @@ export default {
     <a-modal v-model:visible="visible" title="添加用户" @ok="handleOk">
       <a-form :model="formState">
         <a-form-item label="用户名称" required>
-          <a-input v-model:value="formState.name"></a-input>
+          <a-input v-model:value="formState.name" />
         </a-form-item>
         <a-form-item label="用户年龄" required>
-          <a-input v-model:value="formState.age"></a-input>
+          <a-input v-model:value="formState.age" />
         </a-form-item>
         <a-form-item label="组织权限" required>
           <a-select
@@ -132,6 +133,7 @@ export default {
       </a-form>
     </a-modal>
     <a-table bordered :data-source="dataSource" :columns="columns">
+      <!-- 文本修改 -->
       <template
         v-for="col in ['name', 'age', 'group']"
         #[col]="{ text, record }"
@@ -139,21 +141,55 @@ export default {
       >
         <div>
           <a-input
-            v-if="editableData[record.key][col]"
+            v-if="editableData[record.key]"
             v-model:value="editableData[record.key][col]"
             style="margin: -5px 0"
-          >
-          </a-input>
+          />
           <template v-else>
             {{ text }}
           </template>
         </div>
       </template>
-      <template #action="{record}">
+
+      <!-- 修改删除 -->
+      <template #action="{ record }">
+        <!-- 修改 -->
         <a-row>
-          <a-col></a-col>
+          <a-col>
+            <span v-if="editableData[record.key]">
+              <a @click="save(record.key)">Save</a>
+              <a-divider type="vertical" />
+              <a-popconfirm
+                title="Sure to cancel?"
+                @confirm="cancel(record.key)"
+              >
+                <a>Cancel</a>
+              </a-popconfirm>
+            </span>
+            <span v-else>
+              <a @click="edit(record.key)">Edit</a>
+            </span>
+          </a-col>
+          <a-divider type="vertical" />
+          <!-- 删除 -->
+          <a-col>
+            <a-popconfirm
+              v-if="data.length"
+              title="确定要删除吗?"
+              @confirm="onDelete(record.key)"
+            >
+              <a>Delete</a>
+            </a-popconfirm>
+          </a-col>
         </a-row>
       </template>
     </a-table>
   </div>
 </template>
+
+<style scoped lang="less">
+.editable-add-btn{
+  margin-bottom: 8px;
+  margin-left: 8px;
+}
+</style>
